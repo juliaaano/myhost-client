@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  app:
+    build:
+      context: .
+    volumes:
+      - logs:/app/logs
+
+volumes:
+
+  logs:
+    driver: local
+
+networks:
+
+  default:
+    driver: bridge

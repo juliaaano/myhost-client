@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: juliaaano-myhost-client
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: myhost-client
+    spec:
+      containers:
+      - name: myhost-client
+        image: juliaaano/myhost-client:1.0.0
+        volumeMounts:
+        - name: app-logs
+          mountPath: /app/logs
+      volumes:
+      - name: app-logs
+        emptyDir: {}
