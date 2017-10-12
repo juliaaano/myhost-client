@@ -1,7 +1,8 @@
 ### BUILDER IMAGE ###
 FROM maven:3 as builder
 
-COPY ./ ./build
+COPY pom.xml /build/
+COPY src /build/src/
 
 RUN mvn --quiet --file build/pom.xml clean package -DskipTests \
 	&& mkdir app \
